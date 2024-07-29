@@ -13,10 +13,10 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      # - name: Checkout
-      #   uses: actions/checkout@v2.3.5
-      #   with:
-      #     ref: 'feat/v2-ci'
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+        with:
+          ref: "feat/v2-ci"
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v3
@@ -46,6 +46,7 @@ jobs:
             echo "Closing pull request #$PR_NUMBER"
             gh pr close "$PR_NUMBER" -d
           done
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
