@@ -23,9 +23,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Remove yarn.lock
-        run: rm yarn.lock
-
       - name: Install Dependencies
         run: yarn
 
