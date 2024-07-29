@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Remove yarn.lock
+        run: rm yarn.lock
+
       - name: Install Dependencies
         run: yarn
 
@@ -46,7 +49,6 @@ jobs:
             echo "Closing pull request #$PR_NUMBER"
             gh pr close "$PR_NUMBER" -d
           done
-        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
