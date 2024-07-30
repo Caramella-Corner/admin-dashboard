@@ -46,6 +46,7 @@ jobs:
             echo "Closing pull request #$PR_NUMBER"
             gh pr close "$PR_NUMBER" -d
           done
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
@@ -64,3 +65,4 @@ jobs:
           add-paths: yarn.lock
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <github-actions[bot]@users.noreply.github.com>"
+        continue-on-error: true
